@@ -1,0 +1,16 @@
+.ProfilePage {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+.ProfilePage p {
+    line-height:1.5em;
+    color:#434242;
+}
+
+.ProfilePage h3 {
+    font-size:30px; 
+    margin-bottom:10%; 
+    font-weight:100;
+}

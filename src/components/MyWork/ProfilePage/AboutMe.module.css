@@ -1,0 +1,7 @@
+.AboutMe {
+    flex-basis: 33%;
+}
+
+.AboutMe p {
+    text-align: left;
+}

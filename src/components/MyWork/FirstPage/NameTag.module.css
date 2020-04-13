@@ -1,0 +1,47 @@
+@import '../Resume.module.css';
+
+.Tag {
+    font-size: 21px; 
+    font-weight:500; 
+    color:var(--resume-second-dominant);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Tag .Separater {
+    height: 20px;
+    width: 20px;
+    margin: auto 1px;
+}
+
+.NameColor {
+    color: var(--resume-second-dominant);
+}
+
+.DownloadDiv {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.Download {
+    display: block;
+    padding: 5px;
+    box-shadow: 2px;
+    box-sizing: border-box;
+    border-style: groove;
+    border-radius: 0.5px;
+    border-color: var(--resume-third-dominant);
+    color: var(--resume-second-dominant);
+    background-color: var(--resume-dominant);
+}
+
+.Download:hover {
+    text-decoration: none;
+    color: var(--resume-second-dominant);
+    transform: scale(1.1, 1.1);
+    background-color: var(--resume-third-dominant);
+    transition: transform 0.3s;
+}

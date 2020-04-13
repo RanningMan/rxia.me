@@ -1,0 +1,14 @@
+.Contact {
+    flex-basis: 33%;
+}
+
+.Contact .List {
+    display: flex;
+    align-items: flex-end;
+}
+
+.Contact .MediaList {
+    margin-left: 3%;
+    text-decoration: none;
+    color: inherit;
+}

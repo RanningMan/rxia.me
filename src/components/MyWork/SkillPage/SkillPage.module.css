@@ -1,0 +1,6 @@
+@import '../Resume.module.css';
+
+.SkillPage .Borderless {
+    border: 0 none;
+    background-color: var(--resume-third-dominant);
+}

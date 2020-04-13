@@ -1,0 +1,39 @@
+.fadeEnter {
+    opacity: 0;
+    transform: translateX(100%);
+}
+
+.fadeEnterActive {
+    opacity: 1;
+    transform: translateX(0);
+    transition: all 1000ms;
+}
+
+.fadeExit {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.fadeExitActive {
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: all 1000ms;
+}
+
+.FrontPageExit {
+    opacity: 1;
+}
+
+.FrontPageExitActive {
+    opacity: 1;
+    transition: all 10ms linear 1000ms;
+}
+
+.MyWorkEnter {
+    opacity: 0;
+}
+
+.MyWorkEnterActive {
+    opacity: 1;
+    transition: all 1000ms linear 1000ms;
+}

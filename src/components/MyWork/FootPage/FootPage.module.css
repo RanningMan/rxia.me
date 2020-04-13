@@ -1,0 +1,14 @@
+@import '../Resume.module.css';
+
+.FootPage {
+    height:10vh;
+    background-color:var(--resume-last-dominant);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.FootPage .FootTag {
+    color:#e3e7ed;
+    font-size:1.5vh;
+}

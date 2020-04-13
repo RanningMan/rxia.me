@@ -1,0 +1,16 @@
+.Travel {
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    justify-content: space-between;
+}
+
+.Map {
+    width: 100%;
+    height: 50vh;
+}
+
+.MapHalf {
+    width: 50%;
+    height: 50vh;
+}

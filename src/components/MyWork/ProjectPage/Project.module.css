@@ -1,0 +1,77 @@
+@import '../Resume.module.css';
+
+.Project {
+    text-align: left;
+}
+
+.Project .ProjectImg {
+    display: block;
+    max-height:220px;
+    border-style: solid;
+    border-color: var(--resume-second-dominant);
+    border-bottom: none;
+}
+
+.Project:hover .Overlay {
+    color: var(--resume-second-dominant);
+    background: rgba(243, 53, 53, 0.8);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: auto 10%;
+    text-align: left;
+    cursor: pointer;
+}
+
+.Project .Overlay .Line {
+    left: -100%;
+}
+
+.Project .Overlay:hover .Line {
+    width: 100%;
+    border: 1px solid var(--resume-second-dominant);
+    border-radius: 1px;
+    position: relative;
+    left: 0%;
+    transition: left 0.2s ease-in-out;
+}
+
+.Project .Overlay .Tags {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    position: relative;
+    left: 100%;
+}
+
+.Project .Overlay:hover .Tags {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    position: relative;
+    left: 0%;
+    transition: left 0.3s ease-in-out;
+}
+
+.Project .Tag {
+    margin-right: 1%;
+    font-style: italic;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.Project .Overlay {
+    display: none
+}
+
+.Project .Overlay .Description {
+    position: relative;
+    left: 100%;
+}
+
+.Project .Overlay:hover .Description {
+    position: relative;
+    left: 0%;
+    transition: left 0.2s ease-in-out;
+}

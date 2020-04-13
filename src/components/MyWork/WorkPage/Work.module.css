@@ -1,0 +1,52 @@
+@import '../Resume.module.css';
+
+.Work {
+    margin-bottom: 3%;
+}
+
+.Work .Left {
+    text-align: right;
+}
+
+.Work .Middle {
+    text-align: center;
+}
+
+.Work .Icon {
+    height: 40px;
+}
+
+.Work .Line {
+    border-left: 6px solid var(--resume-second-dominant);
+    height: calc(100% - 40px);
+    position: absolute;
+    left: 50%;
+    margin-left: -3px;
+    top: 50px;
+}
+
+.Work .FirstLevelBullet {
+    margin-bottom: 3%;
+}
+
+.Work .FirstLevelBullet .Toggle {
+    cursor: pointer;
+}
+
+.Work .FirstLevelBullet .Toggle:hover {
+    transform: scale(1.1, 1.1);
+    transform-origin: top left;
+}
+
+.Work .FirstLevelBullet .Toggle .BulletPointerUntoggled {
+    height: 20px;
+    margin-right: 1px;
+    transform: rotate(90deg);
+}
+
+.Work .FirstLevelBullet .Toggle .BulletPointerToggled {
+    height: 20px;
+    margin-right: 1px;
+    transform: rotate(180deg);
+    transition: transform 0.1s linear;
+}

@@ -1,0 +1,40 @@
+.NameTag {
+    text-align: center;
+    z-index: 1000;
+    position: relative;
+}
+
+.FrontName {
+    font-weight: 700; 
+    font-size: 63px; 
+    cursor: pointer;
+}
+
+.Name {
+    font-weight: 700; 
+    font-size: 63px; 
+    cursor: pointer;
+}
+
+.Name:hover {
+    animation: jump 1s ease-in-out 0s;
+}
+
+@keyframes jump {
+    from {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-30%);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+.NameTag .Line {
+    border:1px solid;
+    min-width: 33vw;
+}
