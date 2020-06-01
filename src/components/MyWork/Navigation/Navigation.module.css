@@ -14,15 +14,20 @@
     z-index: 100;
 }
 
+.Navigation .Inactive, .Navigation0 .Inactive, .Navigation .Active, .Navigation0 .Active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 8rem;
+    height: 6vh;
+    font-weight: 300;
+}
+
 .Navigation .Inactive, .Navigation0 .Inactive {
-    display: block;
     color: var(--resume-second-dominant);
     background-color:var(--resume-last-dominant);
-    font-size: 40px;
+    font-size: 1.8rem;
     font-weight: 300;
-    text-align: center;
-    width: 8vw;
-    height: 6vh;
 }
 
 .Navigation .Active,.Inactive:hover, .Inactive:hover {
@@ -45,20 +50,19 @@
 
 .Navigation .Active, .Navigation0 .Active {
     background-color: var(--resume-dominant);
-    font-size: 40px;
-    font-weight: 300;
-    text-align: center;
-    width: 8vw;
-    height: 6vh;
-    display: block;
+    font-size: 1.9rem;
     color: var(--resume-second-dominant);
 }
 
 .Navigation .Arrow {
+    height: 100%;
+    max-width: 8rem;
     animation: ArrowUp 0.5s linear alternate;
 }
 
 .Navigation0 .Arrow {
+    height: 100%;
+    max-width: 8rem;
     animation: 
         turnArrowDown 0.5s linear,
         ArrowDown 1s 0.5s linear alternate infinite;
@@ -71,7 +75,7 @@
 
 @keyframes ArrowDown {
     0%   { transform: rotateX(180deg) translateY(0); }
-    50%  { transform: rotateX(180deg) translateY(-10px); }
+    50%  { transform: rotateX(180deg) translateY(-0.5rem); }
     100% { transform: rotateX(180deg) translateY(0); }
 }
 

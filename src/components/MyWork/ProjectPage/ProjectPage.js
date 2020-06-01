@@ -11,15 +11,15 @@ import CascadingFilerImg from '../../../asset/cascadingFilter.png';
 import TableauCatalogImg from '../../../asset/TableauCatalog.png';
 import EmptyStateImg from '../../../asset/emptyState.jpg';
 import PendingMembersImg from '../../../asset/pendingMembers.png';
-import classes from './ProjectPage.module.css';
 
-import CardDeck from 'react-bootstrap/CardDeck';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
 
 const projectData = [
     {
         name: 'Graph Visual Analysis Platform',
         description: 'Traverse a large network in an iterative manner',
-        tags: ['C++', 'web development', 'SQL', 'Graph Algorithm'],
+        tags: ['C++', 'd3.js', 'Graph Algorithm'],
         imgSrc: VisAnalysisImg,
         projectLink: 'https://github.com/RanningMan/LargeNetworkDataVisualPlatform'
     },
@@ -40,28 +40,28 @@ const projectData = [
     {
         name: 'Cross Datasource Filtering',
         description: 'Allow users to apply a filter across multiple primary data sources.',
-        tags: ['C++', 'Tableau', 'Filtering', 'Data Visualization'],
+        tags: ['C++', 'Tableau'],
         imgSrc: XdsfImg,
         projectLink: 'https://www.tableau.com/about/blog/2016/5/requested-you-can-filter-across-data-sources-tableau-10-54330'
     },
     {
         name: 'Latest Date Filter Preset',
-        description: 'Allow users to select the most recent date in the filter when the workbook is shared or opened',
-        tags: ['C++', 'Qt', 'Tableau', 'Filtering', 'Data Visualization'],
+        description: 'Allow users to automatically apply date filters on workbook open.',
+        tags: ['C++', 'Qt', 'Tableau'],
         imgSrc: FilterPresetImg,
         projectLink: 'https://help.tableau.com/v10.3/pro/desktop/en-us/filtering.html#LatestDatePresets'
     },
     {
         name: 'Filter All values in Hierarchy',
         description: 'Allow users to specify which values to show in the filter.',
-        tags: ['C++', 'Tableau', 'Filtering', 'Data Visualization'],
+        tags: ['C++', 'Tableau'],
         imgSrc: CascadingFilerImg,
         projectLink: 'https://help.tableau.com/current/pro/desktop/en-us/filtering.htm'
     },
     {
         name: 'Tableau Catalog',
-        description: 'Tableau Catalog builds a catalog out of the Tableau content being used by organization.',
-        tags: ['React', 'Java', 'GraphQL', 'Data Management'],
+        description: 'Allows users to build a data catalog out of the Tableau content.',
+        tags: ['React', 'Java', 'GraphQL'],
         imgSrc: TableauCatalogImg,
         projectLink: 'https://help.tableau.com/current/server/en-us/dm_catalog_overview.htm'
     },
@@ -74,7 +74,7 @@ const projectData = [
     },
     {
         name: 'Activate Early Access',
-        description: 'Give teacher extra time to set up, add files, and get organized before granting access to students',
+        description: 'Allow teachers to set up a class before granting access to students',
         tags: ['Angular', 'TypeScript'],
         imgSrc: PendingMembersImg,
         projectLink: 'https://support.office.com/en-us/article/activate-early-access-class-teams-created-with-school-data-sync-0d154696-66ab-4fcf-b22f-c3d9a82aaf78'
@@ -82,19 +82,6 @@ const projectData = [
 ]
 
 const projects = () => {
-    let cardGroup = [];
-    let cur = [];
-    projectData.forEach((proj, index) => {
-        if(cur.length === 3) {
-            cardGroup.push([...cur]);
-            cur = [];
-        }
-        cur.push(proj);
-    });
-    if(cur.length > 0) {
-        cardGroup.push([...cur]);
-    }
-
     const clickHandler = (link) => {
         if(link)
             window.location.href = link;
@@ -102,24 +89,22 @@ const projects = () => {
 
     return (
         <OtherPage title="Projects" qoute="I feel like every project I work on is a dream project, so long as I am learning. -- Simeon Kondev" backgroundStyle="resume-light">
-            {
-                cardGroup.map((group, idx) => (
-                    <CardDeck key={idx} className={classes.ProjectCardDeck}>
-                        {
-                            group.map(proj => (
-                                <Project
-                                    key={proj.name}
-                                    name={proj.name} 
-                                    description={proj.description} 
-                                    tags={proj.tags} 
-                                    src={proj.imgSrc}
-                                    clicked={() => clickHandler(proj.projectLink)}>
-                                </Project>)
-                            )
-                        }
-                    </CardDeck>)
-                )
-            }
+            <Row>
+                {
+                    projectData.map(proj => 
+                        <Col md={6} xl={4} key={proj.name}>
+                            <Project 
+                                key={proj.name}
+                                name={proj.name} 
+                                description={proj.description} 
+                                tags={proj.tags} 
+                                src={proj.imgSrc}
+                                clicked={() => clickHandler(proj.projectLink)}>
+                            </Project>
+                        </Col>
+                    )
+                }
+            </Row>
         </OtherPage>
     );
 };

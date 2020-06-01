@@ -51,7 +51,7 @@ const workData = [
     {
         timeline: '01/2014–08/2015',
         jobTitle: 'Software Developer',
-        company: 'Data Science, Biomedical Informatics, OSU Medical Center',
+        company: 'OSU Medical Center',
         bullet: [
             {
                 content: 'Visual Analysis on Large Network Data',
@@ -66,7 +66,7 @@ const workData = [
     {
         timeline: '09/2011-06/2013',
         jobTitle: 'Undergraduate Assistant',
-        company: 'Management and Information System R&D Center, BUAA',
+        company: 'MIS R&D Center, BUAA',
         bullet: [
             {
                 content: 'Information Diffusion Predict',

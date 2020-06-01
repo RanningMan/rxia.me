@@ -20,21 +20,11 @@ const otherPage = (props) => {
         fontColor = classes.ResumeFontColor;
         lineColor = classes.ResumeLineDark;
     }
-    else if(props.backgroundStyle === 'life-light') {
-        style = classes.LifeLight;
-        fontColor = classes.LifeFontColor;
-        lineColor = classes.LifeLineLight;
-    }
-    else if(props.backgroundStyle === 'life-dark') {
-        style = classes.LifeDark;
-        fontColor = classes.LifeFontColor;
-        lineColor = classes.LifeLineDark;
-    }
 
     return (
-        <Row xs={10} sm={10} md={10} lg={10} xl={10} className={style}>
+        <Row md={10} xl={10} className={style}>
             <Col></Col>
-            <Col className={classes.OtherPage} xs={10} sm={6} md={6} lg={6} xl={6}>
+            <Col className={classes.OtherPage} md={8} xl={6}>
                 <h1 className={`${fontColor} ${classes.OtherPageTitle}`}>{props.title}</h1>
                 <p className={classes.Qoute}>{props.qoute}</p>
                 <hr className={`${lineColor} ${classes.Line}`} />

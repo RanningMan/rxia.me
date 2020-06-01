@@ -13,16 +13,16 @@
 }
 
 .Work .Icon {
-    height: 40px;
+    height: 1.9rem;
 }
 
 .Work .Line {
-    border-left: 6px solid var(--resume-second-dominant);
-    height: calc(100% - 40px);
+    border-left: 0.286rem solid var(--resume-second-dominant);
+    height: calc(100% - 1.9rem);
     position: absolute;
     left: 50%;
-    margin-left: -3px;
-    top: 50px;
+    margin-left: -0.14rem;
+    top: 2.38rem;
 }
 
 .Work .FirstLevelBullet {
@@ -39,14 +39,43 @@
 }
 
 .Work .FirstLevelBullet .Toggle .BulletPointerUntoggled {
-    height: 20px;
+    height: 1rem;
     margin-right: 1px;
     transform: rotate(90deg);
 }
 
 .Work .FirstLevelBullet .Toggle .BulletPointerToggled {
-    height: 20px;
+    height: 1rem;
     margin-right: 1px;
     transform: rotate(180deg);
     transition: transform 0.1s linear;
+}
+
+@media (max-width: 767px) {
+    .Work {
+        margin-left: 0;
+        margin-right: 0;
+        margin-bottom: 6%;
+    }
+
+    .Work .Left {
+        text-align: left;
+        display: flex;
+        align-items: flex-start;
+        width: 100%;
+    }
+
+    .Work .FirstLine {
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    .Work .Icon, .Work .Timeline {
+        margin-right: 1rem;
+    }
+
+    .Work .SecondLine {
+        width: 100%;
+    }
 }

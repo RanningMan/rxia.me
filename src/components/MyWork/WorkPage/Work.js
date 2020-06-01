@@ -31,24 +31,35 @@ const WorkItem = (props) => {
 const Work = (props) => {
 
     return (
+        window.innerWidth > 767 ? 
         <Row className={classes.Work}>
-            <Col className={classes.Left} xs={5} sm={5} md={5} lg={5} xl={5}>
+            <Col className={classes.Left} md={5} xl={5}>
                 <h4>{props.timeline}</h4>
                 <div><strong>{props.company}</strong></div>
                 <div><i>{props.jobTitle}</i></div>
             </Col>
-            <Col className={classes.Middle} xs={2} sm={2} md={2} lg={2} xl={2}>
+            <Col className={classes.Middle} md={2} xl={2}>
                 <img className={classes.Icon} src={props.icon} alt="O" />
                 <div className={classes.Line}></div>
             </Col>
-            <Col xs={5} sm={5} md={5} lg={5} xl={5}>
+            <Col md={5} xl={5}>
                 <Accordion>
                 {
                     props.firstLevelBullets.map((bullet, idx) => <WorkItem key={idx} bullet={bullet} eventKey={idx} />)
                 }
                 </Accordion>
             </Col>
-        </Row>
+        </Row> :
+        <Row className={classes.Work}>
+            <Col>
+                <div className={classes.FirstLine}>
+                    <img className={classes.Icon} src={props.icon} alt="O" />
+                    <h4 className={classes.Timeline}>{props.timeline}</h4>
+                    <div><strong>{props.company}</strong></div>
+                </div>
+                <div className={classes.SecondLine}><i>{props.jobTitle}</i></div>
+            </Col>
+        </Row> 
     );
 };
 

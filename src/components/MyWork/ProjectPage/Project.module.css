@@ -2,11 +2,11 @@
 
 .Project {
     text-align: left;
+    font-size: 0.8rem;
 }
 
 .Project .ProjectImg {
-    display: block;
-    max-height:220px;
+    max-height: 10rem;
     border-style: solid;
     border-color: var(--resume-second-dominant);
     border-bottom: none;
@@ -24,8 +24,14 @@
     cursor: pointer;
 }
 
+.Project:hover .Overlay h4 {
+    margin: 0 0 0.1rem 0;
+    text-align: left;
+}
+
 .Project .Overlay .Line {
     left: -100%;
+    margin: 0.1rem auto;
 }
 
 .Project .Overlay:hover .Line {
@@ -74,4 +80,40 @@
     position: relative;
     left: 0%;
     transition: left 0.2s ease-in-out;
+}
+
+.Project .Body {
+    background: rgba(243, 53, 53, 0.8);
+    color: var(--resume-second-dominant);
+}
+
+.Project .Body .Tags {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    position: relative;
+}
+
+@media (max-width: 1200px) {
+    .Project .ProjectImg {
+        max-height: 15rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .Project {
+        margin-bottom: 2rem;
+    }
+
+    .Project .ProjectImg {
+        max-height: 30rem;
+        border-style: none;
+    }
+
+    .Project .Tags {
+        display: flex;
+        justify-content: flex-start;
+        width: 100%;
+        position: relative;
+    }
 }

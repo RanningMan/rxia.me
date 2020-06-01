@@ -1,39 +1,29 @@
-.fadeEnter {
-    opacity: 0;
-    transform: translateX(100%);
+:root {
+    font-size: 1vw;
 }
 
-.fadeEnterActive {
-    opacity: 1;
-    transform: translateX(0);
-    transition: all 1000ms;
+.App {
+    font-size: 1rem;
 }
 
-.fadeExit {
-    opacity: 1;
-    transform: translateX(0);
+.App h4 {
+    font-size: 1rem;
 }
 
-.fadeExitActive {
-    opacity: 0;
-    transform: translateX(-100%);
-    transition: all 1000ms;
-}
+@media (max-width: 767px) {
+    :root {
+        font-size: 2vw;
+    }
 
-.FrontPageExit {
-    opacity: 1;
-}
+    .App {
+        font-size: 2rem;
+    }
 
-.FrontPageExitActive {
-    opacity: 1;
-    transition: all 10ms linear 1000ms;
-}
-
-.MyWorkEnter {
-    opacity: 0;
-}
-
-.MyWorkEnterActive {
-    opacity: 1;
-    transition: all 1000ms linear 1000ms;
+    .App h1 {
+        font-size: 3rem;
+    }
+    
+    .App h4 {
+        font-size: 2rem;
+    }
 }

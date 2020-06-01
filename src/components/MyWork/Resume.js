@@ -22,7 +22,7 @@ const Resume = () => {
 
     return (
 		<>
-			<Navigation refProp={refs} />
+			{window.innerWidth > 767 && <Navigation refProp={refs} />}
 			<Container fluid>
 				<div ref={refs['FirstPage']}><FirstPage /></div>
 				<div ref={refs['Profile']}><Profile /></div>

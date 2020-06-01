@@ -1,1 +1,1 @@
-My personal website: my work and my life
+My personal website

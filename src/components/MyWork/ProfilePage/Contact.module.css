@@ -1,14 +1,23 @@
-.Contact {
-    flex-basis: 33%;
-}
-
 .Contact .List {
     display: flex;
     align-items: flex-end;
+    margin-left: 5%;
+    margin-right: 5%;
 }
 
 .Contact .MediaList {
     margin-left: 3%;
     text-decoration: none;
     color: inherit;
+}
+
+@media (max-width: 767px) {
+    .Contact {
+        margin-top: 10%;
+    }
+
+    .Contact .Media {
+        display: flex;
+        justify-content: center;
+    }
 }

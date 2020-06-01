@@ -16,7 +16,6 @@ const skillList = {
     'React (Redux)': 5,
     'Algorithm': 5,
     'node.js': 5,
-    'Object Orientated Programming': 5,
     'MondoDB': 4,
     'C++': 4,
     'Tableau': 4,
@@ -34,32 +33,42 @@ const skillList = {
 
 const skill = () => {
     let left = [], right = [];
-    Object.keys(skillList).forEach((key, index) => {
-        if(index % 2 === 0) {
+    if(window.innerWidth > 767) {
+        Object.keys(skillList).forEach((key, index) => {
+            if(index % 2 === 0) {
+                left.push({
+                    name: key,
+                    star: skillList[key]
+                });
+            }
+            else {
+                right.push({
+                    name: key,
+                    star: skillList[key]
+                });
+            }
+        });
+    }
+    else {
+        Object.keys(skillList).forEach((key, index) => {
             left.push({
                 name: key,
                 star: skillList[key]
             });
-        }
-        else {
-            right.push({
-                name: key,
-                star: skillList[key]
-            });
-        }
-    });
+        });
+    }
 
     return (
         <OtherPage title="Skills" qoute="Success is that old ABC - ability, breaks and courage. -- Charles Luckman" backgroundStyle="resume-dark">
             <Row className={classes.SkillPage}>
-                <Col>
+                <Col md={6}>
                     <ListGroup>
                         {
                             left.map(skill => <ListGroup.Item key={skill.name} className={classes.Borderless}><Skill name={skill.name} starLevel={skill.star}></Skill></ListGroup.Item>)
                         }
                     </ListGroup>
                 </Col>
-                <Col>
+                <Col md={6}>
                     <ListGroup>
                         {
                             right.map(skill => <ListGroup.Item key={skill.name} className={classes.Borderless}><Skill name={skill.name} starLevel={skill.star}></Skill></ListGroup.Item>)

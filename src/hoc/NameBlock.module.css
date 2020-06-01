@@ -6,13 +6,13 @@
 
 .FrontName {
     font-weight: 700; 
-    font-size: 63px; 
+    font-size: 3rem; 
     cursor: pointer;
 }
 
 .Name {
     font-weight: 700; 
-    font-size: 63px; 
+    font-size: 3rem; 
     cursor: pointer;
 }
 
@@ -36,5 +36,13 @@
 
 .NameTag .Line {
     border:1px solid;
-    min-width: 33vw;
+    min-width: 33rem;
+}
+
+@media (max-width: 767px) {
+    .Name {
+        font-weight: 700; 
+        font-size: 5rem; 
+        cursor: pointer;
+    }
 }

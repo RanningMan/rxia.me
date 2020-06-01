@@ -1,7 +1,7 @@
 @import '../Resume.module.css';
 
 .Tag {
-    font-size: 21px; 
+    font-size: 1rem; 
     font-weight:500; 
     color:var(--resume-second-dominant);
 
@@ -11,9 +11,9 @@
 }
 
 .Tag .Separater {
-    height: 20px;
-    width: 20px;
-    margin: auto 1px;
+    height: 1rem;
+    width: 1rem;
+    margin: auto 0.05rem;
 }
 
 .NameColor {
@@ -21,21 +21,22 @@
 }
 
 .DownloadDiv {
-    margin-top: 10px;
+    margin-top: 0.5rem;
     display: flex;
     justify-content: center;
 }
 
 .Download {
     display: block;
-    padding: 5px;
-    box-shadow: 2px;
+    padding: 0.25rem;
+    box-shadow: 0.1rem;
     box-sizing: border-box;
     border-style: groove;
-    border-radius: 0.5px;
+    border-radius: 0.025rem;
     border-color: var(--resume-third-dominant);
     color: var(--resume-second-dominant);
     background-color: var(--resume-dominant);
+    font-size: 1rem; 
 }
 
 .Download:hover {

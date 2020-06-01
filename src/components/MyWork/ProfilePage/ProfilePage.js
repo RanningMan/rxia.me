@@ -1,4 +1,6 @@
 import React from 'react';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 import OtherPage from '../../../hoc/OtherPage';
 import AboutMe from './AboutMe';
@@ -12,11 +14,17 @@ const aboutMeContent = `I'm a software engineer with broad interests and skills.
 
 const profile = () => (
     <OtherPage title="Profile" qoute="I'm a data driven full stack software engineer." backgroundStyle="resume-light">
-        <div className={classes.ProfilePage}>
-            <AboutMe content={aboutMeContent}/>
-            <Photo src={RanPhoto}/>
-            <Contact />
-        </div>
+        <Row className={classes.ProfilePage}>
+            <Col md={5}>
+                <AboutMe content={aboutMeContent}/>
+            </Col>
+            <Col md={2}>
+                <Photo src={RanPhoto}/>            
+            </Col>
+            <Col md={5}>
+                <Contact />
+            </Col>
+        </Row>
     </OtherPage>
 );
 
