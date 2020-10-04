@@ -11,6 +11,8 @@ import CascadingFilerImg from '../../../asset/cascadingFilter.png';
 import TableauCatalogImg from '../../../asset/TableauCatalog.png';
 import EmptyStateImg from '../../../asset/emptyState.jpg';
 import PendingMembersImg from '../../../asset/pendingMembers.png';
+import UglyGames from '../../../asset/ugly-games.PNG';
+import TeacherLed from '../../../asset/teacherled.gif';
 
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
@@ -66,18 +68,32 @@ const projectData = [
         projectLink: 'https://help.tableau.com/current/server/en-us/dm_catalog_overview.htm'
     },
     {
-        name: 'Programmable Empty State',
+        name: 'Teams for EDU: Programmable Empty State',
         description: 'Suggestions for teacher to start build a healthy class',
-        tags: ['Angular', 'TypeScript', 'DevOps'],
+        tags: ['AngularJS', 'TypeScript', 'DevOps'],
         imgSrc: EmptyStateImg,
         projectLink: ''
     },
     {
-        name: 'Activate Early Access',
+        name: 'Teams for EDU: Early Class Access',
         description: 'Allow teachers to set up a class before granting access to students',
-        tags: ['Angular', 'TypeScript'],
+        tags: ['AngularJS', 'TypeScript'],
         imgSrc: PendingMembersImg,
         projectLink: 'https://support.office.com/en-us/article/activate-early-access-class-teams-created-with-school-data-sync-0d154696-66ab-4fcf-b22f-c3d9a82aaf78'
+    },
+    {
+        name: 'Ugly Games',
+        description: 'Classic games implemented in js with ugly UI',
+        tags: ['JavaScript', 'TypeScript'],
+        imgSrc: UglyGames,
+        projectLink: 'https://ranningman.github.io/UglyGames/'
+    },
+    {
+        name: 'Teams for EDU: Teacher led team creation',
+        description: 'Allows educators to easily create the classes.',
+        tags: ['AngularJS', 'TypeScript'],
+        imgSrc: TeacherLed,
+        projectLink: 'https://educationblog.microsoft.com/en-us/2020/07/9-awesome-teams-updates-for-it-admins-and-back-to-school-deployment/'
     }
 ]
 

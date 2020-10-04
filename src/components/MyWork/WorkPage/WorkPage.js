@@ -16,7 +16,7 @@ const workData = [
             {
                 content: 'Teams for Education, Teams',
                 secondLevel: [
-                    'Improved teacher’s class setup experience by full stack designing, developing, testing and maintaining multiple demanding features, including empty state suggestions, class teams’ early access and re-implementing clone team to make the feature stable and reliable.',
+                    'Improved teacher’s class setup experience by full stack designing, developing, testing and maintaining multiple demanding features, including empty state suggestions, class teams’ early access, educator led team creation, and re-implemented clone team to make the feature stable and reliable.',
                     'Designed, implemented and analyzed multiple A/B testing experimentation to help understand customer needs and to improve the education user retention.'
                 ]
             }

@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
 import classes from './Navigation.module.css';
-import Arrow from '../../../asset/arrow_up.png';
+import ArrowDark from '../../../asset/arrow_up.png';
+import ArrowLight from '../../../asset/arrow_up_light.png';
 
 const SideNavLink = (props) => {
     
@@ -74,30 +75,14 @@ const Nav = (props) => {
 
     });
 
-    let nav = (
-        <ul className={classes.Navigation}>
-            <SideNavLink isActive={activeLink === 'FirstPage'} onClick={() => clickHandler('FirstPage')}> <img className={classes.Arrow} src={Arrow} alt="Front Page"/></SideNavLink>
-            <SideNavLink isActive={activeLink === 'Profile'} onClick={() => clickHandler('Profile')}>Profile</SideNavLink>
-            <SideNavLink isActive={activeLink === 'Skill'} onClick={() => clickHandler('Skill')}>Skills</SideNavLink>
-            <SideNavLink isActive={activeLink === 'Project'} onClick={() => clickHandler('Project')}>Projects</SideNavLink>
-            <SideNavLink isActive={activeLink === 'Work'} onClick={() => clickHandler('Work')}>Work</SideNavLink>
-        </ul>
-    );
-
-    if(!showNav) {
-        nav = <ul className={classes.Navigation0}>
-            <SideNavLink isActive={activeLink === 'FirstPage'} onClick={() => clickHandler('FirstPage')}> <img className={classes.Arrow} src={Arrow} alt="Front Page"/></SideNavLink>
-            <SideNavLink isActive={activeLink === 'Profile'} onClick={() => clickHandler('Profile')}>Profile</SideNavLink>
-            <SideNavLink isActive={activeLink === 'Skill'} onClick={() => clickHandler('Skill')}>Skills</SideNavLink>
-            <SideNavLink isActive={activeLink === 'Project'} onClick={() => clickHandler('Project')}>Projects</SideNavLink>
-            <SideNavLink isActive={activeLink === 'Work'} onClick={() => clickHandler('Work')}>Work</SideNavLink>
-        </ul>
-    }
-
     return (
-        <>
-            {nav}
-        </>
+        <ul className={showNav ? classes.Navigation : classes.Navigation0}>
+            <SideNavLink isActive={activeLink === 'FirstPage'} onClick={() => clickHandler('FirstPage')}> <img className={classes.Arrow} src={showNav ? ArrowLight : ArrowDark} alt="Front Page"/></SideNavLink>
+            <SideNavLink isActive={activeLink === 'Profile'} onClick={() => clickHandler('Profile')}>Profile</SideNavLink>
+            <SideNavLink isActive={activeLink === 'Skill'} onClick={() => clickHandler('Skill')}>Skills</SideNavLink>
+            <SideNavLink isActive={activeLink === 'Project'} onClick={() => clickHandler('Project')}>Projects</SideNavLink>
+            <SideNavLink isActive={activeLink === 'Work'} onClick={() => clickHandler('Work')}>Work</SideNavLink>
+        </ul>
     );
 }
 
