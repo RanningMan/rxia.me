@@ -22,28 +22,6 @@
     padding-bottom: 4%;
 }
 
-.ResumeLight {
-    background-color: var(--resume-second-dominant);
-    color: var(--resume-last-dominant);
-}
-
-.ResumeDark {
-    background-color: var(--resume-third-dominant);
-    color: var(--resume-second-dominant);
-}
-
-.ResumeFontColor {
-    color: var(--resume-dominant);
-}
-
-.ResumeLineLight {
-    border-color: var(--resume-last-dominant);
-}
-
-.ResumeLineDark {
-    border-color: var(--resume-second-dominant);
-}
-
 @media (max-width: 767px) {
     .OtherPage {
         margin-top: 10%;

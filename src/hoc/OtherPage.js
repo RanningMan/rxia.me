@@ -1,33 +1,56 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 import classes from './OtherPage.module.css';
+import ThemeContext from '../components/MyWork/Theme/ThemeContext';
 
-const otherPage = (props) => {
+const OtherPage = (props) => {
+
+    const currentTheme = useContext(ThemeContext).themeStyle;
+
+    const themeStyles = {
+        ResumeLight: {
+            backgroundColor: currentTheme.secondDominant,
+            color: currentTheme.lastDominant
+        },
+        ResumeDark: {
+            backgroundColor: currentTheme.thirdDominant,
+            color: currentTheme.secondDominant
+        },
+        ResumeFontColor: {
+            color: currentTheme.dominant
+        },
+        ResumeLineLight: {
+            borderColor: currentTheme.lastDominant
+        },
+        ResumeLineDark: {
+            borderColor: currentTheme.secondDominant
+        }
+    }
 
     let style = null;
     let fontColor = null;
     let lineColor = null;
     if(props.backgroundStyle === 'resume-light') {
-        style = classes.ResumeLight;
-        fontColor = classes.ResumeFontColor;
-        lineColor = classes.ResumeLineLight;
+        style = themeStyles.ResumeLight;
+        fontColor = themeStyles.ResumeFontColor;
+        lineColor = themeStyles.ResumeLineLight;
     }
     else if(props.backgroundStyle === 'resume-dark') {
-        style = classes.ResumeDark;
-        fontColor = classes.ResumeFontColor;
-        lineColor = classes.ResumeLineDark;
+        style = themeStyles.ResumeDark;
+        fontColor = themeStyles.ResumeFontColor;
+        lineColor = themeStyles.ResumeLineDark;
     }
 
     return (
-        <Row md={10} xl={10} className={style}>
+        <Row md={10} xl={10} style={style}>
             <Col></Col>
             <Col className={classes.OtherPage} md={8} xl={6}>
-                <h1 className={`${fontColor} ${classes.OtherPageTitle}`}>{props.title}</h1>
+                <h1 className={classes.OtherPageTitle} style={fontColor}>{props.title}</h1>
                 <p className={classes.Qoute}>{props.qoute}</p>
-                <hr className={`${lineColor} ${classes.Line}`} />
+                <hr className={classes.Line} style={lineColor} />
                 <React.Fragment>
                     {props.children}
                 </React.Fragment>
@@ -37,4 +60,4 @@ const otherPage = (props) => {
     );
 }
 
-export default otherPage;
+export default OtherPage;

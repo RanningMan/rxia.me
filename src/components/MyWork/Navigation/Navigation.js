@@ -1,13 +1,62 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 
 import classes from './Navigation.module.css';
-import ArrowDark from '../../../asset/arrow_up.png';
-import ArrowLight from '../../../asset/arrow_up_light.png';
+import Arrow from './Arrow';
+import ThemeContext from '../Theme/ThemeContext';
 
 const SideNavLink = (props) => {
+
+    const currentTheme = useContext(ThemeContext).themeStyle;
+    
+    const themeStyle = {
+        Inactive: {
+            color: currentTheme.secondDominant,
+            backgroundColor: currentTheme.lastDominant
+        },
+        Active: {
+            color: currentTheme.secondDominant,
+            backgroundColor: currentTheme.dominant
+        },
+        InactiveHover: {
+            color: currentTheme.secondDominant,
+            backgroundColor: currentTheme.dominant
+        },
+        FirstPage: {
+            color: currentTheme.secondDominant,
+            backgroundColor: currentTheme.dominant
+        },
+    }
+
+    const hover = (e) => {
+        const ele = props.isFirstPage ? e.target.parentElement : e.target;
+        if(!props.isActive) {
+            ele.style.color = themeStyle.InactiveHover.color;
+            ele.style.backgroundColor = themeStyle.InactiveHover.backgroundColor;
+        }
+    }
+
+    const unHover = (e) => {
+        const ele = props.isFirstPage ? e.target.parentElement : e.target;
+        if(!props.isActive) {
+            ele.style.color = themeStyle.Inactive.color;
+            ele.style.backgroundColor = themeStyle.Inactive.backgroundColor;
+        }
+    }
     
     return (
-        <li className={props.isActive ? classes.Active : classes.Inactive} onClick={props.onClick}>
+        props.isFirstPage ?
+        <li className={props.isActive ? classes.Active : classes.Inactive} 
+            onClick={props.onClick} 
+            style={props.isActive ? themeStyle.FirstPage : themeStyle.Inactive}
+            onMouseEnter={hover}
+            onMouseLeave={unHover}>
+            {props.children}
+        </li> :
+        <li className={props.isActive ? classes.Active : classes.Inactive} 
+            onClick={props.onClick} 
+            style={props.isActive ? themeStyle.Active : themeStyle.Inactive}
+            onMouseOver={hover}
+            onMouseOut={unHover}>
             {props.children}
         </li>
     );
@@ -16,6 +65,7 @@ const SideNavLink = (props) => {
 const Nav = (props) => {
 
     const [ activeLink, setActiveLink ] = useState('FirstPage');
+    const [ targetLink, setTargetLink ] = useState('');
     const [ showNav, setShowNav ] = useState(false);
 
     /**
@@ -24,16 +74,23 @@ const Nav = (props) => {
 
     const clickHandler = (link) => {
         props.refProp[link].current.scrollIntoView({behavior: 'smooth'});
-        setActiveLink(link);
+        setTargetLink(link);
         if(!showNav && link === 'FirstPage') {
             props.refProp['Profile'].current.scrollIntoView({behavior: 'smooth'});
-            setActiveLink('Profile');
+            setTargetLink('Profile');
         }
+    }
+
+    const currentTheme = useContext(ThemeContext).themeStyle;
+    
+    const themeStyle = {
+        ArrowFirstPage: currentTheme.lastDominant,
+        ArrowOtherPage: currentTheme.secondDominant
     }
 
     
     useEffect(() => {
-        
+
         const getCurrentPage = () => {
             let curYOffSet = window.pageYOffset;
             if(curYOffSet <= props.refProp['Profile'].current.offsetTop - window.innerHeight * 0.1) {
@@ -52,7 +109,7 @@ const Nav = (props) => {
                 return 'Work';
             }
         }
-
+    
         const scrollHandler = () => {
             if(window.pageYOffset >= window.innerHeight * 0.8) { // 0.8 is from css code, .Navigation top: 20%
                 setShowNav(true);
@@ -62,26 +119,30 @@ const Nav = (props) => {
             }
     
             let currentPage = getCurrentPage();
-            if(currentPage !== activeLink) {
-                setActiveLink(currentPage);
-            }
+            setActiveLink(currentPage);
         }
-
         window.addEventListener('scroll', scrollHandler);
 
         return () => {
             window.removeEventListener('scroll', scrollHandler);
         }
 
+    }, [props.refProp]);
+
+    // eslint-disable-next-line
+    useEffect(() => {
+        setTargetLink('');
     });
 
     return (
         <ul className={showNav ? classes.Navigation : classes.Navigation0}>
-            <SideNavLink isActive={activeLink === 'FirstPage'} onClick={() => clickHandler('FirstPage')}> <img className={classes.Arrow} src={showNav ? ArrowLight : ArrowDark} alt="Front Page"/></SideNavLink>
-            <SideNavLink isActive={activeLink === 'Profile'} onClick={() => clickHandler('Profile')}>Profile</SideNavLink>
-            <SideNavLink isActive={activeLink === 'Skill'} onClick={() => clickHandler('Skill')}>Skills</SideNavLink>
-            <SideNavLink isActive={activeLink === 'Project'} onClick={() => clickHandler('Project')}>Projects</SideNavLink>
-            <SideNavLink isActive={activeLink === 'Work'} onClick={() => clickHandler('Work')}>Work</SideNavLink>
+            <SideNavLink isActive={activeLink === 'FirstPage' || targetLink === 'FirstPage'} isFirstPage={true} onClick={() => clickHandler('FirstPage')}> 
+                <Arrow className={classes.Arrow} color={showNav ? themeStyle.ArrowOtherPage : themeStyle.ArrowFirstPage}/>
+            </SideNavLink>
+            <SideNavLink isActive={activeLink === 'Profile' || activeLink === 'Profile'} onClick={() => clickHandler('Profile')}>Profile</SideNavLink>
+            <SideNavLink isActive={activeLink === 'Skill' || activeLink === 'Skill'} onClick={() => clickHandler('Skill')}>Skills</SideNavLink>
+            <SideNavLink isActive={activeLink === 'Project' || activeLink === 'Project'} onClick={() => clickHandler('Project')}>Projects</SideNavLink>
+            <SideNavLink isActive={activeLink === 'Work' || activeLink === 'Work'} onClick={() => clickHandler('Work')}>Work</SideNavLink>
         </ul>
     );
 }

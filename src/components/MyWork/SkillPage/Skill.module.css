@@ -1,6 +1,13 @@
+@import '../Resume.module.css';
+
+.Borderless {
+    border: 0 none !important;
+}
+
 .Skill {
     display: flex;
     justify-content: space-between;
+    border: 0 none;
 }
 
 .Skill:hover {
@@ -19,4 +26,9 @@
 
 .Skill .StarList .Starfalse {
     opacity: 0.4
+}
+
+.Skill .StarList .Star {
+    height: 1rem;
+    width: 1rem;
 }

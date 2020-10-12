@@ -23,15 +23,12 @@
 }
 
 .Navigation .Inactive, .Navigation0 .Inactive {
-    color: var(--resume-second-dominant);
-    background-color:var(--resume-last-dominant);
     font-size: 1.8rem;
     font-weight: 300;
 }
 
 .Navigation .Active,.Inactive:hover {
     cursor: pointer;
-    background-color: var(--resume-dominant);
     transition: transform 0.1s linear;
     transform: scale(1.2, 1.2);
 }
@@ -40,17 +37,8 @@
     cursor: pointer;
 }
 
-.Navigation0 .Active ~ .Navigation0 .Active {
-    cursor: pointer;
-    background-color: var(--resume-dominant);
-    transition: transform 0.1s linear;
-    transform: scale(1.2, 1.2);
-}
-
 .Navigation .Active, .Navigation0 .Active {
-    background-color: var(--resume-dominant);
     font-size: 1.9rem;
-    color: var(--resume-second-dominant);
 }
 
 .Navigation .Arrow {

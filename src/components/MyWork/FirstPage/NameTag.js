@@ -1,25 +1,63 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import classes from './NameTag.module.css';
-import separater from '../../../asset/separate.png';
 import NameBlock from '../../../hoc/NameBlock';
 import MyResume from '../../../asset/XIA-Ran-SoftwareDeveloper-Resume.pdf'
+import ThemeContext from '../Theme/ThemeContext';
+import Separator from './Separator';
 
-const NameTag = (props) => (
-    <NameBlock color={classes.NameColor} isFrontPage={props.isFrontPage}>
-        <div className={classes.Tag}>
-            <span>Full Stack</span>
-            <img className={classes.Separater} src={separater} alt=' * '/>
-            <span>Data Driven</span>
-            <img className={classes.Separater} src={separater} alt=' * '/>
-            <span>Software Engineer</span>
-        </div>
-        { 
-            !props.isFrontPage && <div className={classes.DownloadDiv}>
-                <a href={MyResume} className={classes.Download}>Download My Resume</a>
-            </div>
+const NameTag = () => {
+
+    const currentTheme = useContext(ThemeContext).themeStyle;
+
+    const themeStyle = {
+        Tag: {
+            color: currentTheme.secondDominant,
+        },
+        NameColor: {
+            color: currentTheme.secondDominant,
+        },
+        Download: {
+            color: currentTheme.secondDominant,
+            backgroundColor: currentTheme.dominant,
+            borderColor: currentTheme.thirdDominant,
+        },
+        DownloadHover: {
+            color: currentTheme.secondDominant,
+            backgroundColor: currentTheme.thirdDominant,
         }
-    </NameBlock>
-);
+    };
+
+    const hover = (e) => {
+        e.target.style.color = themeStyle.DownloadHover.color;
+        e.target.style.backgroundColor = themeStyle.DownloadHover.backgroundColor;
+    }
+
+    const unHover = (e) => {
+        e.target.style.color = themeStyle.Download.color;
+        e.target.style.backgroundColor = themeStyle.Download.backgroundColor;
+    }
+
+    return (
+        <NameBlock color={themeStyle ? themeStyle.NameColor : classes.NameColor}>
+            <div className={classes.Tag} style={themeStyle && themeStyle.Tag}>
+                <span>Full Stack</span>
+                <Separator color={themeStyle.Tag.color} />
+                <span>Data Driven</span>
+                <Separator color={themeStyle.Tag.color} />
+                <span>Software Engineer</span>
+            </div> 
+            <div className={classes.DownloadDiv}>
+                <a href={MyResume} 
+                    className={classes.Download} 
+                    style={themeStyle && themeStyle.Download} 
+                    onMouseOver={hover}
+                    onMouseLeave={unHover}>
+                        Download My Resume
+                </a>
+            </div>
+        </NameBlock>
+    );
+};
 
 export default NameTag;

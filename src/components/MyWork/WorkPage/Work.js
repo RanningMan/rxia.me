@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
@@ -7,6 +7,7 @@ import Accordion  from 'react-bootstrap/Accordion';
 import classes from './Work.module.css';
 
 import arrow from '../../../asset/arrow_up_light.png';
+import ThemeContext from '../Theme/ThemeContext';
 
 const WorkItem = (props) => {
 
@@ -30,6 +31,14 @@ const WorkItem = (props) => {
 
 const Work = (props) => {
 
+    const currentTheme = useContext(ThemeContext).themeStyle;
+
+    const themeStyles = {
+        Line: {
+            borderColor: currentTheme.secondDominant
+        }
+    }
+
     return (
         window.innerWidth > 767 ? 
         <Row className={classes.Work}>
@@ -40,7 +49,7 @@ const Work = (props) => {
             </Col>
             <Col className={classes.Middle} md={2} xl={2}>
                 <img className={classes.Icon} src={props.icon} alt="O" />
-                <div className={classes.Line}></div>
+                <div className={classes.Line} style={themeStyles.Line}></div>
             </Col>
             <Col md={5} xl={5}>
                 <Accordion>

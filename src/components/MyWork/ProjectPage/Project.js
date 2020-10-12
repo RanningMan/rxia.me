@@ -1,16 +1,40 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import Card from 'react-bootstrap/Card';
+import ThemeContext from '../Theme/ThemeContext';
 
 import classes from './Project.module.css';
 
-const project = (props) => (
+const Project = (props) => {
+
+    const currentTheme = useContext(ThemeContext).themeStyle;
+
+    const themeStyle = {
+        ProjectImg: {
+            borderColor: currentTheme.secondDominant
+        },
+        Overlay: {
+            color: currentTheme.secondDominant,
+            backgroundColor: currentTheme.dominant,
+            opacity: '0.9'
+        },
+        Line: {
+            borderColor: currentTheme.secondDominant
+        },
+        Body: {
+            color: currentTheme.secondDominant,
+            backgroundColor: currentTheme.dominant,
+            opacity: '0.9'
+        }
+    }
+
+    return (
         (window.innerWidth > 767 && navigator.userAgent.match(/iPad/i) === null) ?
         <Card className={classes.Project} onClick={props.clicked}>
-            <img className={classes.ProjectImg} variant='top' src={props.src} alt={props.name} />
-            <Card.ImgOverlay className={classes.Overlay}>
+            <img className={classes.ProjectImg} variant='top' src={props.src} alt={props.name} style={themeStyle.ProjectImg} />
+            <Card.ImgOverlay className={classes.Overlay} style={themeStyle.Overlay}>
                 <h4>{props.name}</h4>
-                <hr className={classes.Line} />
+                <hr className={classes.Line} style={themeStyle.Line}/>
                 <p className={classes.Description}>{props.description}</p>
                 <div className={classes.Tags}>
                     {
@@ -20,8 +44,8 @@ const project = (props) => (
             </Card.ImgOverlay>
         </Card> :
         <Card className={classes.Project} onClick={props.clicked}>
-            <img className={classes.ProjectImg} variant='top' src={props.src} alt={props.name} />
-            <Card.Body className={classes.Body}>
+            <img className={classes.ProjectImg} variant='top' src={props.src} alt={props.name} style={themeStyle.ProjectImg}/>
+            <Card.Body className={classes.Body} style={themeStyle.Body}>
                 <Card.Title>{props.name}</Card.Title>
                 <Card.Text as='div'>
                     <p className={classes.Description}>{props.description}</p>
@@ -33,6 +57,7 @@ const project = (props) => (
                 </Card.Text>
             </Card.Body>
         </Card>
-);
+    );
+};
 
-export default project;
+export default Project;
