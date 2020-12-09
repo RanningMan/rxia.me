@@ -23,16 +23,15 @@ const Skill = (props) => {
         starList.push(false);
     }
 
-    const StarTrue = <Star className={classes.Star} color={currentTheme.dominant} />;
-    const StarFalse = <Star className={`${classes.Star} ${classes.Starfalse}`} color={currentTheme.dominant} />;
-
     return (
         <ListGroup.Item key={props.name} className={classes.Borderless} style={themeStyles.Borderless}>
             <div className={classes.Skill} style={themeStyles.Skill}>
                 <div className={classes.Name}>{props.name}</div>
                 <div className={classes.StarList}>
                 {
-                    starList.map((star) => star ? StarTrue : StarFalse)
+                    starList.map((star, index) => star ? 
+                    <Star className={classes.Star} color={currentTheme.dominant} key={`0${index}`} /> : 
+                    <Star className={`${classes.Star} ${classes.Starfalse}`} color={currentTheme.dominant} key={`1${index}`}/>)
                 }
                 </div>
             </div>

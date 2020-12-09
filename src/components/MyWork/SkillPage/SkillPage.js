@@ -66,14 +66,14 @@ const skill = () => {
                 <Col md={6}>
                     <ListGroup>
                         {
-                            left.map(skill => <Skill name={skill.name} starLevel={skill.star}></Skill>)
+                            left.map(skill => <Skill name={skill.name} starLevel={skill.star} key={skill.name}></Skill>)
                         }
                     </ListGroup>
                 </Col>
                 <Col md={6}>
                     <ListGroup>
                         {
-                            right.map(skill => <Skill name={skill.name} starLevel={skill.star}></Skill>)
+                            right.map(skill => <Skill name={skill.name} starLevel={skill.star} key={skill.name}></Skill>)
                         }
                     </ListGroup>
                 </Col>
