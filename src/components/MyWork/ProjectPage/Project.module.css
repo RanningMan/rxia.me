@@ -6,7 +6,7 @@
 }
 
 .Project .ProjectImg {
-    max-height: 10rem;
+    height: 9rem;
     border-style: solid;
     border-color: var(--resume-second-dominant);
     border-bottom: none;
