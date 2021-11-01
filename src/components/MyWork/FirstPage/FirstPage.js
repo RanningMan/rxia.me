@@ -11,7 +11,7 @@ import Background from '../../../asset/Flash-left.svg';
 import MobileBackground from '../../../asset/Mobile-Background.png';
 
 
-const FirstPage = () => {
+const FirstPage = ({isLargeScreen}) => {
 
     const themeStyle = useContext(ThemeContext).themeStyle;
     const styles = {
@@ -22,10 +22,10 @@ const FirstPage = () => {
 
     return (
         <>
-            <img src={window.innerWidth > 767 ? Background : MobileBackground} alt='' className={classes.Image}
+            <img src={isLargeScreen ? Background : MobileBackground} alt='' className={classes.Image}
                  style={styles}/>
             <Row className={classes.FirstPage}>
-                {window.innerWidth > 767 && <ThemeSwitcher />}
+                {isLargeScreen && <ThemeSwitcher />}
                 <Col></Col>
                 <Col>
                     <NameTag></NameTag>

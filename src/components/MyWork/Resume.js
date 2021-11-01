@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import Container from 'react-bootstrap/Container';
 
@@ -9,6 +9,7 @@ import Work from './WorkPage/WorkPage';
 import Profile from './ProfilePage/ProfilePage';
 import FootPage from './FootPage/FootPage';
 import Navigation from './Navigation/Navigation';
+import MobileNavigation from './Navigation/MobileNavigation';
 
 const Resume = () => {
 
@@ -20,11 +21,20 @@ const Resume = () => {
 		'Work': React.createRef()
 	}
 
+	const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth > 767);
+	const onWindowResize = () => {
+		setIsLargeScreen(window.innerWidth > 767);
+	}
+	useEffect(() => {
+		window.addEventListener("resize", onWindowResize);
+    	return () => window.removeEventListener("resize", onWindowResize);
+	},[]);
+
     return (
 		<>
-			{window.innerWidth > 767 && <Navigation refProp={refs} />}
+			{isLargeScreen ? <Navigation refProp={refs} /> : <MobileNavigation refProp={refs}/> }
 			<Container fluid>
-				<div ref={refs['FirstPage']}><FirstPage /></div>
+				<div ref={refs['FirstPage']}><FirstPage isLargeScreen={isLargeScreen} /></div>
 				<div ref={refs['Profile']}><Profile /></div>
 				<div ref={refs['Skill']}><Skill /></div>
 				<div ref={refs['Project']}><Project /></div>

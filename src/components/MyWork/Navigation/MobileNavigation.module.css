@@ -1,0 +1,127 @@
+@import '../Resume.module.css';
+
+.Navigation {
+    margin: 0 !important;
+    position: fixed;
+    width: 100%;
+    z-index: 10000;
+}
+
+.TopBar {
+    background-color: var(--resume-second-dominant);
+}
+
+.OpacTopBar {
+    opacity: 10%;
+}
+
+.Name {
+    font-weight: 700; 
+    font-size: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Hamburger, .Cross {
+    width: 45%;
+}
+
+.HamburgerBar, .HamburgerBar1, .HamburgerBar0, .HamburgerBar2, .CrossBar1, .CrossBar0, .CrossBar2 {
+    border: 1px solid;
+    width: 100%;
+}
+
+.HamburgerBar1 {
+    animation: hamburgerbar1 0.5s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+}
+
+@keyframes hamburgerbar1 {
+    0% {
+        transform: rotate(45deg) translateY(1.7rem);
+    }
+
+    100% {
+        transform: rotate(0deg) translateY(0rem);
+    }
+}
+
+.HamburgerBar2 {
+    animation: hamburgerbar2 0.5s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+}
+
+@keyframes hamburgerbar2 {
+    0% {
+        transform: rotate(-45deg) translateY(-1.7rem);
+    }
+
+    100% {
+        transform: rotate(0deg) translateY(0rem);
+    }
+}
+
+.CrossBar1 {
+    animation: crossbar1 0.5s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+}
+
+@keyframes crossbar1 {
+    0% {
+        transform: rotate(0deg) translateY(0rem);
+    }
+
+    100% {
+        transform: rotate(45deg) translateY(1.7rem);
+    }
+}
+
+.CrossBar2 {
+    animation: crossbar2 0.5s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+}
+
+@keyframes crossbar2 {
+    0% {
+        transform: rotate(0deg) translateY(0rem);
+    }
+
+    100% {
+        transform: rotate(-45deg) translateY(-1.7rem);
+    }
+}
+
+.CrossBar0 {
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.MenuContainer {
+    height: 100vh;
+    background-color: var(--resume-second-dominant);
+}
+
+.OpacMenuContainer {
+    opacity: 80%;
+}
+
+.Menu {
+    margin-top: 3rem;
+    font-size: 4rem;
+}
+
+.MenuItem {
+    margin-bottom: 2rem;
+    color: var(--resume-last-dominant);
+}
