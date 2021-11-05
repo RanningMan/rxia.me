@@ -106,7 +106,7 @@
     }
 
     .Project .ProjectImg {
-        max-height: 30rem;
+        height: 30rem;
         border-style: none;
     }
 

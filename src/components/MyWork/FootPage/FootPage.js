@@ -17,7 +17,7 @@ const Foot = () => {
 
     return (
         <Row className={classes.FootPage} style={themeStyle.FootPage}>
-            <p className={classes.FootTag}>@2020 by Ran Xia</p>
+            <p className={classes.FootTag}>@2021 by Ran Xia</p>
         </Row>
     );
 };

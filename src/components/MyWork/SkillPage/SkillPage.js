@@ -13,7 +13,7 @@ const technology = {
     'CSS(3)': 5,
     'JavaScript': 5,
     'TypeScript': 5,
-    'React (Redux)': 5,
+    'React': 5,
     'GraphQL': 5,
     'node.js': 5,
     'AngularJS': 4,
@@ -32,12 +32,12 @@ const domains = {
     'Data Visualization': 4,
     'Refactoring': 4,
     'Agile': 4,
-    'Serverless': 4,
+    'Serverless': 3,
     'Accessibility': 3,
     'Machine Learning': 3,
 }
 
-const buildSkillTable = (skillType, skillList) => {
+const buildSkillTable = (skillType, skillList, isLargeScreen) => {
     let left = [], right = [];
     if (window.innerWidth > 767) {
         Object.keys(skillList).forEach((key, index) => {
@@ -65,7 +65,7 @@ const buildSkillTable = (skillType, skillList) => {
     }
 
     return <>
-        <Row className={classes.SkillType}><Col md={12}><h3>{skillType}</h3></Col></Row>
+        <Row className={classes.SkillType}><Col md={12}>{isLargeScreen ? <h3>{skillType}</h3> : <h1>{skillType}</h1>}</Col></Row>
         <Row className={classes.SkillPage}>
             <Col md={6}>
                 <ListGroup>
@@ -85,9 +85,9 @@ const buildSkillTable = (skillType, skillList) => {
     </>;
 }
 
-const skill = () => {
-    const Tech = buildSkillTable('Technology', technology);
-    const Domain = buildSkillTable('Domains', domains);
+const skill = ({isLargeScreen}) => {
+    const Tech = buildSkillTable('Technology', technology, isLargeScreen);
+    const Domain = buildSkillTable('Domain Experts', domains, isLargeScreen);
 
     return (
         <OtherPage title="Skills" qoute="Success is that old ABC - ability, breaks and courage. -- Charles Luckman" backgroundStyle="resume-dark">

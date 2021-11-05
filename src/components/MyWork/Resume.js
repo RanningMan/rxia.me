@@ -36,7 +36,7 @@ const Resume = () => {
 			<Container fluid>
 				<div ref={refs['FirstPage']}><FirstPage isLargeScreen={isLargeScreen} /></div>
 				<div ref={refs['Profile']}><Profile /></div>
-				<div ref={refs['Skill']}><Skill /></div>
+				<div ref={refs['Skill']}><Skill isLargeScreen={isLargeScreen} /></div>
 				<div ref={refs['Project']}><Project /></div>
 				<div ref={refs['Work']}><Work /></div>
 				<FootPage />
