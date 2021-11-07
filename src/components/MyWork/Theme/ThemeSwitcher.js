@@ -7,21 +7,23 @@ import classes from './ThemeSwitcher.module.css';
 import ThemeType from './ThemeType';
 import ThemeContext from './ThemeContext';
 import ThemeStyles from './ThemeStyles';
-import {getTodaysWeather} from './ThemeHelper';
+import {getTodaysWeather, getWeatherTheme } from './ThemeHelper';
 
 const ThemeSwitcher = () => {
 
     const themeContext = useContext(ThemeContext);
 
-    const [weather, setWeather] = useState(ThemeStyles.sunny);
+    const [weather, setWeatherThemeStyle] = useState(ThemeStyles.sunny);
 
     useEffect(() => {
         const setWeatherAsync = async () => {
             const todaysweather = await getTodaysWeather();
-            setWeather(todaysweather);
+            const todaysweatherthemestyle = getWeatherTheme(todaysweather);
+            setWeatherThemeStyle(todaysweatherthemestyle);
+            themeContext.setWeather(todaysweather);
         }
         setWeatherAsync();
-    }, []);
+    }, [themeContext]);
 
 
     const setTheme = (themeType) => {

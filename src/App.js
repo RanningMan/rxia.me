@@ -5,12 +5,14 @@ import classes from './App.module.css';
 import ThemeContext from './components/MyWork/Theme/ThemeContext';
 import ThemeStyles from './components/MyWork/Theme/ThemeStyles';
 import ThemeType from './components/MyWork/Theme/ThemeType';
-import { getTodaysWeather } from './components/MyWork/Theme/ThemeHelper';
+import { getTodaysWeather, getWeatherTheme } from './components/MyWork/Theme/ThemeHelper';
+import WeatherEnum from './components/MyWork/Theme/WeatherEnum';
 
 
 const App = () => {
     
     const [theme, setTheme] = useState(ThemeStyles.default);
+    const [weather, setWeather] = useState(WeatherEnum.Sunny);
 
     const [isFetchingPreference, setIsFetchingPreference] = useState(true);
     
@@ -23,7 +25,9 @@ const App = () => {
             const preferredTheme = localStorage.getItem('preferredTheme');
             if(preferredTheme === ThemeType.WEATHER) {
                 const todaysweather = await getTodaysWeather();
-                setTheme(todaysweather);
+                const todaysweatherthemestyle = getWeatherTheme(todaysweather);
+                setTheme(todaysweatherthemestyle);
+                setWeather(todaysweather);
             }
             setIsFetchingPreference(false);
         }
@@ -32,7 +36,7 @@ const App = () => {
 
     return (
         isFetchingPreference ? null :
-        <ThemeContext.Provider value={{themeStyle: theme, setTheme: setThemeType}}>
+        <ThemeContext.Provider value={{themeStyle: theme, setTheme: setThemeType, weather: weather, setWeather: setWeather}}>
             <div className={classes.App}>
                 <Resume />
             </div>

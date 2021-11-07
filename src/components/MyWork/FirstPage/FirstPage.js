@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
@@ -9,30 +9,22 @@ import ThemeContext from '../Theme/ThemeContext';
 import classes from './FirstPage.module.css';
 import Background from '../../../asset/Flash-left.svg';
 import MobileBackground from '../../../asset/Mobile-Background.png';
-import Blog from '../../../asset/blogger.png';
-import B from '../../../asset/bloggerB.png';
-
-const BlogSwitcher = () => {
-    const [hover, setHover] = useState(false);
-
-    return <a className={classes.Blog} 
-              href='https://rxia.blog/'
-              onMouseOver={() => setHover(true)} 
-              onMouseLeave={() => setHover(false)}>
-                  <img src={hover ? Blog : B} alt="check out my blogs!" title="check out my blogs!"/>
-            </a>;
-}
+import Rain from '../Theme/RainAnimation';
+import { isRainning } from '../Theme/ThemeHelper';
+import BlogSwitcher from '../Blog/BlogSwitcher';
 
 const FirstPage = ({isLargeScreen}) => {
 
-    const themeStyle = useContext(ThemeContext).themeStyle;
+    const themeContext = useContext(ThemeContext);
+    const themeStyle = themeContext.themeStyle;
+    const raining = isRainning(themeContext.weather);
     const styles = {
         height: '100%',
         width: '100%',
         backgroundColor: themeStyle.dominant
     }
 
-    const isBlogReady = false;
+    const isBlogReady = true;
 
     return (
         <>
@@ -41,6 +33,7 @@ const FirstPage = ({isLargeScreen}) => {
             <Row className={classes.FirstPage}>
                 {isLargeScreen && <ThemeSwitcher />}
                 {isBlogReady && isLargeScreen && <BlogSwitcher />}
+                {raining && < Rain />}
                 <Col></Col>
                 <Col>
                     <NameTag></NameTag>

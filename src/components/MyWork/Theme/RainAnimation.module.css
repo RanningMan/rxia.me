@@ -1,0 +1,50 @@
+.Rain {
+    position: absolute;
+    left: 0;
+    width: 90vw;
+    height: 100vh;
+    z-index: 90;
+}
+
+.Drop {
+    position: absolute;
+    height: 7.5rem;
+    pointer-events: none;
+    animation: drop 0.5s linear infinite;
+}
+
+@keyframes drop {
+    0% {
+        transform: translateY(0vh);
+    }
+    75% {
+        transform: translateY(90vh);
+    }
+    100% {
+        transform: translateY(90vh);
+    }
+}
+
+.Stem {
+    width: 0.25rem;
+    height: 60%;
+    margin-left: 0.5rem;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.45));
+    border-radius: 0.125rem;
+    animation: stem 0.5s linear infinite;
+}
+
+@keyframes stem {
+    0% {
+        opacity: 1;
+    }
+    65% {
+        opacity: 1;
+    }
+    75% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
