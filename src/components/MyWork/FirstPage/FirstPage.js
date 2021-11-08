@@ -24,15 +24,13 @@ const FirstPage = ({isLargeScreen}) => {
         backgroundColor: themeStyle.dominant
     }
 
-    const isBlogReady = false;
-
     return (
         <>
             <img src={isLargeScreen ? Background : MobileBackground} alt='' className={classes.Image}
                  style={styles}/>
             <Row className={classes.FirstPage}>
                 {isLargeScreen && <ThemeSwitcher />}
-                {isBlogReady && isLargeScreen && <BlogSwitcher />}
+                {isLargeScreen && <BlogSwitcher />}
                 {raining && < Rain />}
                 <Col></Col>
                 <Col>
