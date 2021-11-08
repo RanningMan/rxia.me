@@ -2,19 +2,24 @@ import React, { useContext } from 'react';
 
 import Card from 'react-bootstrap/Card';
 import ThemeContext from '../Theme/ThemeContext';
+import WeatherEnum from '../Theme/WeatherEnum';
+import ThemeType from '../Theme/ThemeType';
 
 import classes from './Project.module.css';
 
 const Project = (props) => {
 
-    const currentTheme = useContext(ThemeContext).themeStyle;
+    const themeContext = useContext(ThemeContext);
+    const currentTheme = themeContext.themeStyle;
+    const weather = themeContext.weather;
+    const weatherTheme = localStorage.getItem('preferredTheme') === ThemeType.WEATHER;
 
     const themeStyle = {
         ProjectImg: {
             borderColor: currentTheme.secondDominant
         },
         Overlay: {
-            color: currentTheme.secondDominant,
+            color: weatherTheme && weather === WeatherEnum.Sunny ? currentTheme.lastDominant : currentTheme.secondDominant,
             backgroundColor: currentTheme.dominant,
             opacity: '0.9'
         },

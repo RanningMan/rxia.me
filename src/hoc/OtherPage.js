@@ -5,15 +5,20 @@ import Col from 'react-bootstrap/Col';
 
 import classes from './OtherPage.module.css';
 import ThemeContext from '../components/MyWork/Theme/ThemeContext';
+import ThemeType from '../components/MyWork/Theme/ThemeType';
+import { cloudyWeather } from '../components/MyWork/Theme/ThemeHelper';
 
 const OtherPage = (props) => {
 
-    const currentTheme = useContext(ThemeContext).themeStyle;
+    const themeContext = useContext(ThemeContext);
+    const currentTheme = themeContext.themeStyle;
+    const weather = themeContext.weather;
+    const weatherTheme = localStorage.getItem('preferredTheme') === ThemeType.WEATHER;
 
     const themeStyles = {
         ResumeLight: {
             backgroundColor: currentTheme.secondDominant,
-            color: currentTheme.lastDominant
+            color: weatherTheme && cloudyWeather(weather) ? 'white' : currentTheme.lastDominant
         },
         ResumeDark: {
             backgroundColor: currentTheme.thirdDominant,

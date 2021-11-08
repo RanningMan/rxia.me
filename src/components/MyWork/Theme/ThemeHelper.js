@@ -73,3 +73,5 @@ export const isRainning = (weatherEnum) => {
     const preferredTheme = localStorage.getItem('preferredTheme');
     return preferredTheme === ThemeType.WEATHER && (weatherEnum === WeatherEnum.Drizzle || weatherEnum === WeatherEnum.Rain || weatherEnum === WeatherEnum.Thunderstorm);
 }
+
+export const cloudyWeather = (weather) => weather === WeatherEnum.Snow || weather === WeatherEnum.Clouds || weather === WeatherEnum.Atmosphere || weather === WeatherEnum.Rain || weather === WeatherEnum.Thunderstorm || weather === WeatherEnum.Drizzle;

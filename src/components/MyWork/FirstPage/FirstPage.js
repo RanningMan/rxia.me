@@ -24,7 +24,7 @@ const FirstPage = ({isLargeScreen}) => {
         backgroundColor: themeStyle.dominant
     }
 
-    const isBlogReady = true;
+    const isBlogReady = false;
 
     return (
         <>
