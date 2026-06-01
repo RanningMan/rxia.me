@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 
 import Resume from './components/MyWork/Resume';
 import classes from './App.module.css';
@@ -39,6 +40,7 @@ const App = () => {
         <ThemeContext.Provider value={{themeStyle: theme, setTheme: setThemeType, weather: weather, setWeather: setWeather}}>
             <div className={classes.App}>
                 <Resume />
+                <Analytics />
             </div>
         </ThemeContext.Provider>
       );
